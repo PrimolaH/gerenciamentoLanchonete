@@ -1,0 +1,5 @@
+FROM openjdk:17-alpine
+ARG JAR_FILE=burgerfast-app.jar
+COPY burgerfast-app/target/${JAR_FILE} /opt/app/
+WORKDIR /opt/app/
+ENTRYPOINT ["java","-jar","/opt/app/burgerfast-app.jar"]

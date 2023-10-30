@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=burgerfast
+#      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysqldb:/docker/mysql
+  api:
+    container_name: api
+    image: burgerfast
+    build:
+      context: ./
+      dockerfile: DockerFile
+    depends_on:
+      - mysqldb
+    ports:
+      - 8080:8080
+    restart: always
+#    volumes:
+#      - /target:/opt/app
+
+volumes:
+  mysqldb:
+#  api:

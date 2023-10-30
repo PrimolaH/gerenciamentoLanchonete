@@ -1,4 +1,4 @@
-package br.com.ms.burgerfast;
+package br.com.burgerfast;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
