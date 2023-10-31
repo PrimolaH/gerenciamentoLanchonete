@@ -60,13 +60,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>3.1.5</version>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <outputDirectory>../target</outputDirectory>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
