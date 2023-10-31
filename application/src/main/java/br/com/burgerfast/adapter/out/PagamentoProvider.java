@@ -1,4 +1,10 @@
 package br.com.burgerfast.adapter.out;
 
-public class PagamentoProvider {
+import br.com.burgerfast.core.port.PagamentoPort;
+
+public class PagamentoProvider implements PagamentoPort {
+    @Override
+    public void efetuarPagamento() {
+
+    }
 }

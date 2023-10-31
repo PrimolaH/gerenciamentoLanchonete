@@ -1,4 +1,25 @@
 package br.com.burgerfast.adapter.out;
 
-public class ProdutoProvider {
+import br.com.burgerfast.core.port.ProdutoPort;
+
+public class ProdutoProvider implements ProdutoPort {
+    @Override
+    public String listaProdutosPorCategoria(String categoria) {
+        return null;
+    }
+
+    @Override
+    public void addProduto() {
+
+    }
+
+    @Override
+    public void removerProduto() {
+
+    }
+
+    @Override
+    public void editarProduto() {
+
+    }
 }
