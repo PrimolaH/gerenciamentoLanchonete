@@ -1,15 +1,14 @@
 package br.com.burgerfast.out.entities;
 
 import br.com.burgerfast.out.entities.enuns.CategoriaEnum;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,6 +18,7 @@ import java.math.BigDecimal;
 public class ProdutoEntity {
 
     @Id
+    @Column(name="id_produto")
     private Long id;
     @Column(name="nm_produto")
     private String nome;
@@ -30,5 +30,10 @@ public class ProdutoEntity {
     private String descricao;
     @Column(name="ds_imagem")
     private String imagem;
+    @ManyToMany
+    @JoinTable(name="produto_pedido",
+            joinColumns = @JoinColumn(name="id_produto"),
+            inverseJoinColumns = @JoinColumn(name="id_pedido"))
+    private List<PedidoEntity> pedidos;
 
 }
