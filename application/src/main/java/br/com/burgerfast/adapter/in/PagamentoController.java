@@ -9,13 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("pagamento")
 public class PagamentoController {
 
-    @GetMapping("/{value}")
-    public ResponseEntity<String> totalPagamento(@PathVariable String value){
-        return ResponseEntity.ok("valor Pagamento");
-    }
-
     @PostMapping
-    public ResponseEntity<Void> pagamentoPedido(){
+    public ResponseEntity<Void> efetuarPagamento(){
         return  ResponseEntity.status(201).build();
     }
 }
