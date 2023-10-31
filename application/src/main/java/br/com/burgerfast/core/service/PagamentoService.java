@@ -1,9 +1,9 @@
 package br.com.burgerfast.core.service;
 
-import br.com.burgerfast.core.port.PagamentoPort;
+import org.springframework.stereotype.Service;
 
-public class PagamentoService implements PagamentoPort {
-    @Override
+@Service
+public class PagamentoService {
     public void efetuarPagamento() {
 
     }

@@ -1,24 +1,21 @@
 package br.com.burgerfast.core.service;
 
-import br.com.burgerfast.core.port.ProdutoPort;
+import org.springframework.stereotype.Service;
 
-public class ProdutoService implements ProdutoPort {
-    @Override
+@Service
+public class ProdutoService{
     public String listaProdutosPorCategoria(String categoria) {
         return null;
     }
 
-    @Override
     public void addProduto() {
 
     }
 
-    @Override
     public void removerProduto() {
 
     }
 
-    @Override
     public void editarProduto() {
 
     }

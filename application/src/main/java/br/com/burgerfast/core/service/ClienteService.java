@@ -1,14 +1,13 @@
 package br.com.burgerfast.core.service;
 
-import br.com.burgerfast.core.port.ClientePort;
+import org.springframework.stereotype.Service;
 
-public class ClienteService implements ClientePort {
-    @Override
+@Service
+public class ClienteService {
     public String buscarClienteCpf(String cpf) {
         return null;
     }
 
-    @Override
     public void cadastroCliente() {
 
     }
