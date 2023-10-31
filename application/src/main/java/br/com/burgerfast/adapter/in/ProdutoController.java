@@ -11,7 +11,7 @@ public class ProdutoController {
 
     @GetMapping("/{produto}")
     public ResponseEntity<String> listaProdutos(@PathVariable String produto){
-        return ResponseEntity.ok("Lista Pedido");
+        return ResponseEntity.ok("Lista Produto");
     }
 
     @PostMapping
