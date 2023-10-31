@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class PagamentoController {
 
-    private final PagamentoService pagamentoService
+    private final PagamentoService pagamentoService;
     @PostMapping
     public ResponseEntity<Void> efetuarPagamento(){
         pagamentoService.efetuarPagamento();
