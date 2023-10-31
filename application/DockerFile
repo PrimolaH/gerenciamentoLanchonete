@@ -1,5 +1,6 @@
-FROM openjdk:17-alpine
-ARG JAR_FILE=burgerfast-app.jar
-COPY burgerfast-app/target/${JAR_FILE} /opt/app/
+FROM maven:3.6.3-openjdk-17
 WORKDIR /opt/app/
-ENTRYPOINT ["java","-jar","/opt/app/burgerfast-app.jar"]
+COPY . /opt/app/
+# Compile and package the application to an executable JAR
+RUN mvn package
+ENTRYPOINT ["java","-jar","/opt/app/target/burgerfast.jar"]
