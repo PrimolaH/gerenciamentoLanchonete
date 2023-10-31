@@ -1,14 +1,13 @@
 package br.com.burgerfast.out.entities.enuns;
 
-import lombok.Data;
 import lombok.Getter;
 
 @Getter
 public enum CategoriaEnum {
-    LANCHE(1,"lanche"),
-    ACOMPANHAMENTO(2,"acompanhamento"),
-    BEBIDA(3,"bebida"),
-    SOBREMESA(4,"sobremesa");
+    LANCHE(1,"Lanche"),
+    ACOMPANHAMENTO(2,"Acompanhamento"),
+    BEBIDA(3,"Bebida"),
+    SOBREMESA(4,"Sobremesa");
 
     private Integer code;
     private String value;
