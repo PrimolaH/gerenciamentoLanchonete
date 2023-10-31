@@ -1,11 +1,8 @@
-package br.com.burgerfast.out.entities;
+package br.com.burgerfast.adapter.out.entities;
 
-import br.com.burgerfast.out.entities.enuns.StatusEnum;
+import br.com.burgerfast.adapter.out.entities.enuns.StatusEnum;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,8 +27,11 @@ public class PedidoEntity {
     @ManyToMany(mappedBy="pedidos")
     private List<ProdutoEntity> produtoEntityList;
 
-    @Column(name="id_cliente")
+    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name="id_cliente")
     private ClienteEntity clienteEntity;
+
     @Column(name="vl_total")
     private BigDecimal total;
 }

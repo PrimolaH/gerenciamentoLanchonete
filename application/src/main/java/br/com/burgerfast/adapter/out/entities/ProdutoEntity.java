@@ -1,6 +1,6 @@
-package br.com.burgerfast.out.entities;
+package br.com.burgerfast.adapter.out.entities;
 
-import br.com.burgerfast.out.entities.enuns.CategoriaEnum;
+import br.com.burgerfast.adapter.out.entities.enuns.CategoriaEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +22,7 @@ public class ProdutoEntity {
     private Long id;
     @Column(name="nm_produto")
     private String nome;
-    @Column(name="nm_produto")
+    @Column(name="id_categoria")
     private CategoriaEnum categoria;
     @Column(name="vl_preco")
     private BigDecimal preco;

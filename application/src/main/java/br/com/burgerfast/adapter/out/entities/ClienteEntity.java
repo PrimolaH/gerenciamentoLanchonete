@@ -1,12 +1,15 @@
-package br.com.burgerfast.out.entities;
+package br.com.burgerfast.adapter.out.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -26,4 +29,10 @@ public class ClienteEntity {
 
     @Column(name="ds_email")
     private String email;
+
+    @OneToMany(mappedBy="clienteEntity")
+    private List<PedidoEntity> pedidoEntityList;
+
+    @OneToMany(mappedBy="clienteEntity")
+    private List<PagamentoEntity> pagamentoEntityList;
 }

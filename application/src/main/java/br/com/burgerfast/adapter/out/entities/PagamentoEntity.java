@@ -1,8 +1,7 @@
-package br.com.burgerfast.out.entities;
+package br.com.burgerfast.adapter.out.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +17,9 @@ public class PagamentoEntity {
     @Id
     private Long id;
 
-    @Column(name="id_cliente")
+    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name="id_cliente")
     private ClienteEntity clienteEntity;
 
     @Column(name="vl_total")

@@ -7,13 +7,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root123
       - MYSQL_DATABASE=burgerfast
-#      - MYSQL_USER=root
       - MYSQL_PASSWORD=password
     restart: always
     ports:
       - 3306:3306
     volumes:
-      - mysqldb:/docker/mysql
+      - "../docker/mysqldb/initdb.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "../docker/mysqldb:/docker/mysql"
   api:
     container_name: api
     image: burgerfast

@@ -1,4 +1,4 @@
-package br.com.burgerfast.out.entities.enuns;
+package br.com.burgerfast.adapter.out.entities.enuns;
 
 import lombok.Getter;
 
