@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class ClienteHttpModel {
 
     private Long id;
-    private Integer cpf;
+    private String cpf;
     private String name;
     private String email;
 

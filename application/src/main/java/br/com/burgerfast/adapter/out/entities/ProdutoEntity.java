@@ -22,11 +22,11 @@ public class ProdutoEntity {
     private Long id;
     @Column(name="nm_produto")
     private String nome;
-    @Basic
-    @Column(name="id_categoria")
-    private Integer categoriaValue;
-    @Transient
-    private CategoriaEnum categoria;
+//    @Basic
+//    @Column(name="id_categoria")
+//    private Integer categoriaValue;
+    @Column(name = "id_categoria")
+    private Integer categoria;
     @Column(name="vl_preco")
     private BigDecimal preco;
     @Column(name="ds_produto")
@@ -39,17 +39,17 @@ public class ProdutoEntity {
             inverseJoinColumns = @JoinColumn(name="id_pedido"))
     private List<PedidoEntity> pedidos;
 
-    @PostLoad
-    void fillTransient() {
-        if (categoriaValue > 0) {
-            this.categoria = CategoriaEnum.toEnum(categoriaValue);
-        }
-    }
-
-    @PrePersist
-    void fillPersistent() {
-        if (categoria != null) {
-            this.categoriaValue = categoria.getCode();
-        }
-    }
+//    @PostLoad
+//    void fillTransient() {
+//        if (categoriaValue > 0) {
+//            this.categoria = CategoriaEnum.toEnum(categoriaValue);
+//        }
+//    }
+//
+//    @PrePersist
+//    void fillPersistent() {
+//        if (categoria != null) {
+//            this.categoriaValue = categoria.getCode();
+//        }
+//    }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public class Cliente {
 
     private Long id;
-    private Integer cpf;
+    private String cpf;
     private String name;
     private String email;
 }

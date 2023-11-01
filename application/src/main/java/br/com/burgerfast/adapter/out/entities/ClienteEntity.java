@@ -1,9 +1,6 @@
 package br.com.burgerfast.adapter.out.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +16,11 @@ import java.util.List;
 public class ClienteEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="nr_cpf")
-    private Integer cpf;
+    private String cpf;
 
     @Column(name="nm_cliente")
     private String name;
