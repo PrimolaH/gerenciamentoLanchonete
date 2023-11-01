@@ -31,4 +31,19 @@ public enum CategoriaEnum {
 
         throw new IllegalArgumentException("Value inválido: " + value);
     }
+
+
+    public static CategoriaEnum toEnum(Integer code) {
+        if(code == null) {
+            return null;
+        }
+
+        for(CategoriaEnum x : CategoriaEnum.values()) {
+            if(code.equals(x.getCode())) {
+                return x;
+            }
+        }
+
+        throw new IllegalArgumentException("Value inválido: " + code);
+    }
 }
