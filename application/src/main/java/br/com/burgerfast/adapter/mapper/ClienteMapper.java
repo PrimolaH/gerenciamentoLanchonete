@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.mapper;
 
+import br.com.burgerfast.adapter.in.httpModels.ClienteHttpModel;
 import br.com.burgerfast.adapter.out.entities.ClienteEntity;
 import br.com.burgerfast.core.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -17,5 +18,13 @@ public class ClienteMapper {
 
     public ClienteEntity entityFrom(Cliente domain){
         return this.modelMapper.map(domain, ClienteEntity.class);
+    }
+
+    public Cliente httpModelTo(ClienteHttpModel httpModel){
+        return this.modelMapper.map(httpModel, Cliente.class);
+    }
+
+    public ClienteHttpModel httpModelFrom(Cliente domain){
+        return this.modelMapper.map(domain, ClienteHttpModel.class);
     }
 }
