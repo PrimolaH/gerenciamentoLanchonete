@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProdutoPort {
 
-    List<Produto> listaProdutosPorCategoria(String categoria);
+    List<Produto> listaProdutosPorCategoria(Integer categoria);
 
     Produto addProduto(Produto produto);
 

@@ -19,11 +19,10 @@ public class ProdutoProvider implements ProdutoPort {
     private final ProdutoRepository produtoRepository;
     private final ProdutoMapper produtoMapper;
     @Override
-    public List<Produto> listaProdutosPorCategoria(String categoria) {
-//        List<ProdutoEntity> produtos = produtoRepository.findByCategoria(categoria);
-//        return produtos.stream().map(produtoMapper::entityTo)
-//                .collect(Collectors.toList());
-        return null;
+    public List<Produto> listaProdutosPorCategoria(Integer categoria) {
+        List<ProdutoEntity> produtos = produtoRepository.findByCategoria(categoria);
+        return produtos.stream().map(produtoMapper::entityTo)
+                .collect(Collectors.toList());
     }
 
     @Override

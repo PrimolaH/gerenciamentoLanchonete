@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 public class PagamentoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pagamento")
     private Long id;
 
     @JsonManagedReference

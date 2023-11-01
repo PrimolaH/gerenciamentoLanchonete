@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 public class PedidoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pedido")
     private Long id;
     @Column(name="ds_status")
     private StatusEnum status;
