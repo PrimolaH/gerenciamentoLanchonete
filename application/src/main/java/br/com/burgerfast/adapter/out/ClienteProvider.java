@@ -18,8 +18,8 @@ public class ClienteProvider implements ClientePort {
     private final ClienteMapper clienteMapper;
 
     @Override
-    public String buscarClienteCpf(String cpf) {
-        return null;
+    public Cliente buscarClienteCpf(String cpf) {
+        return clienteMapper.entityTo(clienteRepository.findByCpf(cpf));
     }
 
     @Override
