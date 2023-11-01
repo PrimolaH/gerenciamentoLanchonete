@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 public class Pagamento {
 
     private Long id;
-    private Cliente clienteEntity;
+    private Cliente cliente;
     private Integer total;
 }
