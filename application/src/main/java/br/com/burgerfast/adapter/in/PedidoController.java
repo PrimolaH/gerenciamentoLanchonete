@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PedidoController {
 
     private final PedidoService pedidoService;
-    @GetMapping("/{pedido}")
+    @GetMapping("/pedido/{pedido}")
     public ResponseEntity<String> listarPedido(@PathVariable String pedido){
         var ListaPedido = pedidoService.listarPedido(pedido);
         return ResponseEntity.ok("Lista Pedido");
     }
 
-    @PostMapping
+    @PostMapping("/pedido")
     public ResponseEntity<Void> criarPedido(){
         pedidoService.criarPedido();
         return ResponseEntity.status(201).build();

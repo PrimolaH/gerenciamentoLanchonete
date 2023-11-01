@@ -21,6 +21,5 @@ public class Produto {
     private BigDecimal preco;
     private String descricao;
     private String imagem;
-    private List<Pedido> pedidos;
 
 }

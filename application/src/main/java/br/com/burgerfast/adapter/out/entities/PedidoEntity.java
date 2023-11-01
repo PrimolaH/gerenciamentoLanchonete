@@ -1,6 +1,8 @@
 package br.com.burgerfast.adapter.out.entities;
 
 import br.com.burgerfast.adapter.out.entities.enuns.StatusEnum;
+import br.com.burgerfast.core.domain.Cliente;
+import br.com.burgerfast.core.domain.Pedido;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -34,4 +38,5 @@ public class PedidoEntity {
 
     @Column(name="vl_total")
     private BigDecimal total;
+
 }

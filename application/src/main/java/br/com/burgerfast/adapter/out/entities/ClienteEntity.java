@@ -1,5 +1,7 @@
 package br.com.burgerfast.adapter.out.entities;
 
+import br.com.burgerfast.adapter.in.httpModels.ClienteHttpModel;
+import br.com.burgerfast.core.domain.Cliente;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -35,4 +38,6 @@ public class ClienteEntity {
 
     @OneToMany(mappedBy="clienteEntity")
     private List<PagamentoEntity> pagamentoEntityList;
+
+
 }

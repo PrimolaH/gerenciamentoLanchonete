@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("pagamento")
+@RestController
 @RequiredArgsConstructor
 public class PagamentoController {
 
     private final PagamentoService pagamentoService;
-    @PostMapping
+    @PostMapping("/pagamento")
     public ResponseEntity<Void> efetuarPagamento(){
         pagamentoService.efetuarPagamento();
         return  ResponseEntity.status(201).build();

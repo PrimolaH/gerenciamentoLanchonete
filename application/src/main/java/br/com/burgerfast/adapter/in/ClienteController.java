@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("cliente")
+@RestController("")
 public class ClienteController {
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/cliente/{cpf}")
     public ResponseEntity<String> buscarClienteCpf(@PathVariable String cpf){
         return ResponseEntity.ok("Valor CPF");
     }
 
-    @PostMapping
+    @PostMapping("/cliente")
     public ResponseEntity<Void> cadastroCliente(){
         return  ResponseEntity.status(201).build();
     }

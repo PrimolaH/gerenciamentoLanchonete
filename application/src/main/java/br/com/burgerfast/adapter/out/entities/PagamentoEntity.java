@@ -1,11 +1,15 @@
 package br.com.burgerfast.adapter.out.entities;
 
+import br.com.burgerfast.core.domain.Cliente;
+import br.com.burgerfast.core.domain.Pagamento;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Optional;
 
 @Data
 @Builder
@@ -24,4 +28,5 @@ public class PagamentoEntity {
 
     @Column(name="vl_total")
     private Integer total;
+
 }

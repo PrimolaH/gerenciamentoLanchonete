@@ -1,8 +1,6 @@
 package br.com.burgerfast.core.domain;
 
 import br.com.burgerfast.adapter.out.entities.enuns.StatusEnum;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +17,7 @@ public class Pedido {
 
     private Long id;
     private StatusEnum status;
-    private List<Produto> produtoEntityList;
-    private Cliente clienteEntity;
+    private List<Produto> produtoList;
+    private Cliente cliente;
     private BigDecimal total;
 }

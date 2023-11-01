@@ -17,5 +17,4 @@ public class Cliente {
     private Integer cpf;
     private String name;
     private String email;
-    private List<Pedido> pedidoEntityList;
 }
