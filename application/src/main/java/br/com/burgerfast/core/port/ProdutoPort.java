@@ -1,12 +1,14 @@
 package br.com.burgerfast.core.port;
 
+import br.com.burgerfast.core.domain.Produto;
+
 public interface ProdutoPort {
 
     String listaProdutosPorCategoria(String categoria);
 
-    void addProduto();
+    Produto addProduto(Produto produto);
 
-    void removerProduto();
+    Produto removerProduto( Produto produto);
 
-    void editarProduto();
+    Produto editarProduto( Produto produto);
 }
