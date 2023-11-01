@@ -1,8 +1,6 @@
 package br.com.burgerfast.adapter.in.httpModels;
 
 import br.com.burgerfast.adapter.out.entities.enuns.StatusEnum;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +18,7 @@ public class PedidoHttpModel {
     private Long id;
     private StatusEnum status;
     private List<ProdutoHttpModel> produtoEntityList;
-    private ClienteHttpModel clienteEntity;
+    private PedidoHttpModel pedidoEntity;
     private BigDecimal total;
+
 }

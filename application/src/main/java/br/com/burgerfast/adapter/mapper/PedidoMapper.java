@@ -1,8 +1,6 @@
 package br.com.burgerfast.adapter.mapper;
 
-import br.com.burgerfast.adapter.out.entities.PagamentoEntity;
 import br.com.burgerfast.adapter.out.entities.PedidoEntity;
-import br.com.burgerfast.core.domain.Pagamento;
 import br.com.burgerfast.core.domain.Pedido;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
