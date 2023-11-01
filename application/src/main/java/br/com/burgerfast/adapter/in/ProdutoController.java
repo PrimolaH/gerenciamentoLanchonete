@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,9 +21,11 @@ public class ProdutoController {
     private final ProdutoMapper produtoMapper;
 
     @GetMapping("/produto/{categoria}")
-    public ResponseEntity<String> listaProdutosPorCategoria(@PathVariable String categoria){
-        var produto = produtoService.listaProdutosPorCategoria(categoria);
-        return ResponseEntity.ok("Lista Produto");
+    public ResponseEntity<List<ProdutoHttpModel>> listaProdutosPorCategoria(@PathVariable String categoria){
+        List<ProdutoHttpModel> produtoHttpModelList = produtoService.listaProdutosPorCategoria(categoria).stream()
+                .map(produtoMapper::httpModelFrom)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(produtoHttpModelList);
     }
 
     @PostMapping("/produto")
@@ -33,7 +37,7 @@ public class ProdutoController {
                 .path("/{id_produto}")
                 .buildAndExpand(produtoHttpModel.getId())
                 .toUri();
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.created(uri).build();
     }
 
     @DeleteMapping("/produto/{id_produto}")

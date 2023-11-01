@@ -27,7 +27,7 @@ public class ProdutoProvider implements ProdutoPort {
 
     @Override
     public Produto addProduto( Produto produto) {
-        ProdutoEntity produtoEntity = produtoRepository.save(produtoMapper.entityFrom(produto));
+        ProdutoEntity produtoEntity = produtoRepository.saveAndFlush(produtoMapper.entityFrom(produto));
         return  produtoMapper.entityTo(produtoEntity);
     }
 

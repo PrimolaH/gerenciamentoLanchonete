@@ -1,13 +1,16 @@
-package br.com.burgerfast.adapter.out.entities.enuns;
+package br.com.burgerfast.core.domain.enums;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 @Getter
 public enum CategoriaEnum {
-    LANCHE(1,"Lanche"),
-    ACOMPANHAMENTO(2,"Acompanhamento"),
-    BEBIDA(3,"Bebida"),
-    SOBREMESA(4,"Sobremesa");
+    LANCHE(1,"LANCHE"),
+    ACOMPANHAMENTO(2,"ACOMPANHAMENTO"),
+    BEBIDA(3,"BEBIDA"),
+    SOBREMESA(4,"SOBREMESA");
 
     private Integer code;
     private String value;
@@ -16,6 +19,13 @@ public enum CategoriaEnum {
     private CategoriaEnum(Integer code, String value) {
         this.code = code;
         this.value = value;
+    }
+
+    public static Integer getByValue(String value){
+        Optional<CategoriaEnum> categoriaEnum = Arrays.asList(CategoriaEnum.values()).stream()
+                .filter(item -> item.getValue().equalsIgnoreCase(value))
+                .findFirst();
+        return categoriaEnum.map(CategoriaEnum::getCode).orElse(null);
     }
 
     public static CategoriaEnum toEnum(String value) {

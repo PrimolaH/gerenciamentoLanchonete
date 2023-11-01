@@ -1,13 +1,12 @@
 package br.com.burgerfast.core.domain;
 
-import br.com.burgerfast.adapter.out.entities.enuns.CategoriaEnum;
+import br.com.burgerfast.core.domain.enums.CategoriaEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @Builder

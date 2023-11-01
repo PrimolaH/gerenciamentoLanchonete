@@ -1,13 +1,13 @@
 package br.com.burgerfast.adapter.in.httpModels;
 
-import br.com.burgerfast.adapter.out.entities.enuns.CategoriaEnum;
+import br.com.burgerfast.adapter.in.httpModels.enums.CategoriaHttpModelEnum;
+import br.com.burgerfast.core.domain.enums.CategoriaEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @Builder
@@ -17,10 +17,9 @@ public class ProdutoHttpModel {
 
     private Long id;
     private String nome;
-    private CategoriaEnum categoria;
+    private CategoriaHttpModelEnum categoria;
     private BigDecimal preco;
     private String descricao;
     private String imagem;
-    private List<PedidoHttpModel> pedidos;
 
 }
