@@ -1,8 +1,12 @@
 package br.com.burgerfast.core.port;
 
+import br.com.burgerfast.core.domain.Pedido;
+
+import java.util.List;
+
 public interface PedidoPort {
 
-    String listarPedido(String pedido);
+    List<Pedido> listarPedido();
 
-    void criarPedido();
+    Pedido criarPedido(Pedido domain);
 }
