@@ -12,26 +12,26 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
+@RequestMapping("/cliente")
 @RequiredArgsConstructor
 public class ClienteController {
 
     private final ClienteService clienteService;
     private final ClienteMapper clienteMapper;
 
-    @GetMapping("/cliente/{cpf}")
+    @GetMapping("/{cpf}")
     public ResponseEntity<ClienteHttpModel> buscarClienteCpf(@PathVariable String cpf){
         ClienteHttpModel clienteHttpModel = clienteMapper.httpModelFrom(clienteService.buscarClienteCpf(cpf));
         return ResponseEntity.ok(clienteHttpModel);
     }
 
-    @PostMapping("/cliente")
+    @PostMapping
     public ResponseEntity<Void> cadastroCliente(@RequestBody ClienteHttpModel httpModel){
-        Cliente cliente = clienteMapper.httpModelTo(httpModel);
-        ClienteHttpModel clienteHttpModel = clienteMapper.httpModelFrom(clienteService.cadastroCliente(cliente));
+        Cliente cliente = clienteService.cadastroCliente(clienteMapper.httpModelTo(httpModel));
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{cpf}")
-                .buildAndExpand(clienteHttpModel.getCpf())
+                .buildAndExpand(cliente.getCpf())
                 .toUri();
         return ResponseEntity.created(uri).build();
     }

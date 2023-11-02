@@ -24,7 +24,7 @@ public class ClienteProvider implements ClientePort {
 
     @Override
     public Cliente cadastroCliente(Cliente cliente) {
-        ClienteEntity clienteEntity = clienteRepository.save(clienteMapper.entityFrom(cliente));
+        ClienteEntity clienteEntity = clienteRepository.saveAndFlush(clienteMapper.entityFrom(cliente));
         return clienteMapper.entityTo(clienteEntity);
     }
 }

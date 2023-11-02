@@ -17,7 +17,7 @@ public class PagamentoProvider implements PagamentoPort {
     private final PagamentoMapper pagamentoMapper;
     @Override
     public Pagamento efetuarPagamento( Pagamento pagamento) {
-        PagamentoEntity pagamentoEntity = pagamentoRepository.save(pagamentoMapper.entityFrom(pagamento));
+        PagamentoEntity pagamentoEntity = pagamentoRepository.saveAndFlush(pagamentoMapper.entityFrom(pagamento));
         return  pagamentoMapper.entityTo(pagamentoEntity);
     }
 
