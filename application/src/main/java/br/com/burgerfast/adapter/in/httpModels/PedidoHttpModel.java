@@ -17,8 +17,8 @@ public class PedidoHttpModel {
 
     private Long id;
     private StatusEnum status;
-    private List<ProdutoHttpModel> produtoEntityList;
-    private PedidoHttpModel pedidoEntity;
+    private List<ProdutoHttpModel> produtos;
+    private ClienteHttpModel cliente;
     private BigDecimal total;
 
 }

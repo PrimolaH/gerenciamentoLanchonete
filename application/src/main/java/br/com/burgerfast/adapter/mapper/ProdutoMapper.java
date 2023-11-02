@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.mapper;
 
+import br.com.burgerfast.adapter.in.httpModels.CadastroProdutoHttpModel;
 import br.com.burgerfast.adapter.in.httpModels.ProdutoHttpModel;
 import br.com.burgerfast.adapter.in.httpModels.enums.CategoriaHttpModelEnum;
 import br.com.burgerfast.adapter.out.entities.ProdutoEntity;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Component;
 public class ProdutoMapper {
 
     private final ModelMapper modelMapper = new ModelMapper();
-
     private TypeMap<ProdutoEntity, Produto> propMapEntityTo = modelMapper.createTypeMap(ProdutoEntity.class, Produto.class);
     private TypeMap<Produto, ProdutoEntity> propMapEntityFrom = modelMapper.createTypeMap(Produto.class, ProdutoEntity.class);
     private TypeMap<Produto, ProdutoHttpModel> propMapHttpModelFrom = modelMapper.createTypeMap(Produto.class, ProdutoHttpModel.class);
@@ -39,6 +39,10 @@ public class ProdutoMapper {
     }
 
     public Produto httpModelTo(ProdutoHttpModel httpModel){
+        return this.modelMapper.map(httpModel, Produto.class);
+    }
+
+    public Produto httpModelTo(CadastroProdutoHttpModel httpModel){
         return this.modelMapper.map(httpModel, Produto.class);
     }
 

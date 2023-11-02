@@ -22,7 +22,12 @@ public class PagamentoEntity {
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="id_cliente")
-    private ClienteEntity clienteEntity;
+    private ClienteEntity cliente;
+
+    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name="id_pedido")
+    private PedidoEntity pedido;
 
     @Column(name="vl_total")
     private Integer total;

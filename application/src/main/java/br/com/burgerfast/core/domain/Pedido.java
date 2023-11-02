@@ -17,7 +17,7 @@ public class Pedido {
 
     private Long id;
     private StatusEnum status;
-    private List<Produto> produtoList;
+    private List<Produto> produtos;
     private Cliente cliente;
     private BigDecimal total;
 }

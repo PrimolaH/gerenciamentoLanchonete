@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.mapper;
 
+import br.com.burgerfast.adapter.in.httpModels.CadastroClienteHttpModel;
 import br.com.burgerfast.adapter.in.httpModels.ClienteHttpModel;
 import br.com.burgerfast.adapter.out.entities.ClienteEntity;
 import br.com.burgerfast.core.domain.Cliente;
@@ -21,6 +22,10 @@ public class ClienteMapper {
     }
 
     public Cliente httpModelTo(ClienteHttpModel httpModel){
+        return this.modelMapper.map(httpModel, Cliente.class);
+    }
+
+    public Cliente httpModelTo(CadastroClienteHttpModel httpModel){
         return this.modelMapper.map(httpModel, Cliente.class);
     }
 

@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.in;
 
+import br.com.burgerfast.adapter.in.httpModels.CadastroProdutoHttpModel;
 import br.com.burgerfast.adapter.in.httpModels.ProdutoHttpModel;
 import br.com.burgerfast.adapter.mapper.ProdutoMapper;
 import br.com.burgerfast.core.domain.Produto;
@@ -30,12 +31,12 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> addProduto(@RequestBody ProdutoHttpModel httpModel){
+    public ResponseEntity<Void> addProduto(@RequestBody CadastroProdutoHttpModel httpModel){
         Produto produto = produtoService.addProduto(produtoMapper.httpModelTo(httpModel));
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/{id_produto}")
-                .buildAndExpand(produto.getId())
+                .path("/{categoria}")
+                .buildAndExpand(produto.getCategoria())
                 .toUri();
         return ResponseEntity.created(uri).build();
     }

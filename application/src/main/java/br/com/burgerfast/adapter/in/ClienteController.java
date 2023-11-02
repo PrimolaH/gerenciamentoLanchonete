@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.in;
 
+import br.com.burgerfast.adapter.in.httpModels.CadastroClienteHttpModel;
 import br.com.burgerfast.adapter.in.httpModels.ClienteHttpModel;
 import br.com.burgerfast.adapter.mapper.ClienteMapper;
 import br.com.burgerfast.core.domain.Cliente;
@@ -26,7 +27,7 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> cadastroCliente(@RequestBody ClienteHttpModel httpModel){
+    public ResponseEntity<Void> cadastroCliente(@RequestBody CadastroClienteHttpModel httpModel){
         Cliente cliente = clienteService.cadastroCliente(clienteMapper.httpModelTo(httpModel));
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()

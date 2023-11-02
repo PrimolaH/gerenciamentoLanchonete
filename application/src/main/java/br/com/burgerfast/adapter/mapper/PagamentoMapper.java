@@ -13,10 +13,6 @@ public class PagamentoMapper {
     private final ModelMapper modelMapper;
 
     public Pagamento entityTo(PagamentoEntity entity){
-//        TypeMap<PagamentoEntity, Pagamento> properTypeMap = this.modelMapper.createTypeMap(PagamentoEntity.class, Pagamento.class);
-//        properTypeMap.addMappings(
-//                mapper -> mapper.map(src -> src.getClienteEntity().getId(), Pagamento::setIdCliente)
-//        );
         return this.modelMapper.map(entity, Pagamento.class);
     }
 

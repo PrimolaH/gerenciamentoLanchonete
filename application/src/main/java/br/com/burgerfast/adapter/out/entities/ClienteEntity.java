@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.out.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,10 +30,10 @@ public class ClienteEntity {
     @Column(name="ds_email")
     private String email;
 
-    @OneToMany(mappedBy="clienteEntity")
+    @OneToMany(mappedBy="cliente")
     private List<PedidoEntity> pedidoEntityList;
 
-    @OneToMany(mappedBy="clienteEntity")
+    @OneToMany(mappedBy="cliente")
     private List<PagamentoEntity> pagamentoEntityList;
 
 

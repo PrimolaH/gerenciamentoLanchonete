@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.in;
 
+import br.com.burgerfast.adapter.in.httpModels.CadastroPedidoHttpModel;
 import br.com.burgerfast.adapter.in.httpModels.PedidoHttpModel;
 import br.com.burgerfast.adapter.mapper.PedidoMapper;
 import br.com.burgerfast.core.domain.Pedido;
@@ -30,7 +31,7 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> criarPedido(@RequestBody PedidoHttpModel httpModel){
+    public ResponseEntity<Void> criarPedido(@RequestBody CadastroPedidoHttpModel httpModel){
         Pedido pedido = pedidoService.criarPedido(pedidoMapper.httpModelTo(httpModel));
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()

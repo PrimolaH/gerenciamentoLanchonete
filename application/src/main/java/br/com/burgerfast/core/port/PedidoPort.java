@@ -9,4 +9,7 @@ public interface PedidoPort {
     List<Pedido> listarPedido();
 
     Pedido criarPedido(Pedido domain);
+    void enviarPedido(Pedido domain);
+
+    Pedido buscarPedido(Long id);
 }

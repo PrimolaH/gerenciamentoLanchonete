@@ -1,5 +1,6 @@
 package br.com.burgerfast.adapter.out.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,9 +31,8 @@ public class ProdutoEntity {
     private String descricao;
     @Column(name="ds_imagem")
     private String imagem;
-    @ManyToMany
-    @JoinTable(name="produto_pedido",
-            joinColumns = @JoinColumn(name="id_produto"),
-            inverseJoinColumns = @JoinColumn(name="id_pedido"))
+
+    @JsonManagedReference
+    @ManyToMany(mappedBy="produtos")
     private List<PedidoEntity> pedidos;
 }

@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PagamentoHttpModel {
-    private ClienteIdHttpModel cliente;
-    private PedidoIdHttpModel pedido;
-    private Integer total;
+public class CadastroClienteHttpModel {
+
+    private String cpf;
+    private String name;
+    private String email;
+
 }

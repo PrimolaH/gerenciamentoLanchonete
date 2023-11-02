@@ -13,4 +13,6 @@ public interface ProdutoPort {
     void removerProduto( Produto produto);
 
     Produto editarProduto( Produto produto);
+
+    Produto buscarPorId(Long id);
 }

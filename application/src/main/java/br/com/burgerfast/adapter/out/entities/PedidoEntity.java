@@ -29,14 +29,20 @@ public class PedidoEntity {
     @Column(name="ds_status")
     private StatusEnum status;
 
-    @JsonManagedReference
-    @ManyToMany(mappedBy="pedidos")
-    private List<ProdutoEntity> produtoEntityList;
+    @ManyToMany
+    @JoinTable(name="produto_pedido",
+            joinColumns = @JoinColumn(name="id_pedido"),
+            inverseJoinColumns = @JoinColumn(name="id_produto"))
+    private List<ProdutoEntity> produtos;
 
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="id_cliente")
-    private ClienteEntity clienteEntity;
+    private ClienteEntity cliente;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy="pedido")
+    private List<PagamentoEntity> pagamentoEntityList;
 
     @Column(name="vl_total")
     private BigDecimal total;

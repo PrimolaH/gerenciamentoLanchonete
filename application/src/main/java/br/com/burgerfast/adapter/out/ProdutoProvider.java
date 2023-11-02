@@ -42,4 +42,11 @@ public class ProdutoProvider implements ProdutoPort {
         return  produtoMapper.entityTo(produtoEntity);
     }
 
+    @Override
+    public Produto buscarPorId(Long id) {
+        return produtoRepository.findById(id).stream()
+                .map(produtoMapper::entityTo)
+                .findFirst().orElse(null);
+    }
+
 }
