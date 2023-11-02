@@ -7,6 +7,13 @@ create table cliente
     nr_cpf     varchar(255) null
 );
 
+create table fila_pedido
+(
+    id_fila     bigint auto_increment
+        primary key,
+    ds_mensagem varchar(255) null
+);
+
 create table pedido
 (
     ds_status  tinyint        null,
@@ -28,7 +35,7 @@ create table pagamento
     id_pedido    bigint null,
     constraint FK4m0hn0cs8y78h61cnj0ay0w2
         foreign key (id_cliente) references cliente (id_cliente),
-    constraint pagamento_pedido__fk
+    constraint FKr0y4u4wge04ftnh22vhmid0ee
         foreign key (id_pedido) references pedido (id_pedido)
 );
 
