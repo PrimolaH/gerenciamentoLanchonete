@@ -1,6 +1,12 @@
 
 # Web Service BurguerFast
 
+1. [Documentação API](#doc-api)
+2. [Documentação](#doc)
+3. [Run projeto](#run-project)
+4. [Autores](#autors)
+4. [Sintaxe de Markdown](#syntax)
+
 **Sistema da lanchonete que realiza:**
 - Cadastro e gerenciamento de produto (adicionar, editar e remover);
 - Consultas de produto (cardapio);
@@ -8,8 +14,11 @@
 - Cadastro de pedidos e gerenciamento do pedido (atualização de status do pedido);
 - Realização de pagamento do pedido;
 
+<div id="doc-api" />
 
 ## Documentação da API
+
+-- Swagger:http://localhost:8080/burgerfast-documentation.html
 
 #### Criar cadastro Cliente
 
@@ -221,15 +230,36 @@ Exemplo:
 ]
 ```
 
+<div id="doc"/>
 
 ## Documentação
 
-- Repositório:
 - Miro:https://miro.com/app/board/uXjVNW3P5mA=/?share_link_id=922512094469
-- Swagger:http://localhost:8080/burgerfast-documentation.html
-- Postman
+- Postman: [burguerFast.postman_collection.json](collection%2FburguerFast.postman_collection.json)  na raiz do repositorio
 
+<div id="run-project"/>
 
+## Run Project
+
+A aplicação possui um *DockerFile* onde controi a imagem da api e um *docker-composer* para criar as instancias do banco e da api.
+para rodar a aplicação basta apenas rodar os comandos:
+
+**Acessar a pasta aplication**
+```dockerfile
+cd application
+```
+**Construir a imagem da aplicação**
+```dockerfile
+docker build . -t burgerfast:latest
+```
+**Subir as instâncias da aplicação**
+```dockerfile
+docker-compose up
+```
+
+pronto a aplicação está rodando e executando perfeitamente.
+
+<div id="autors"/>
 
 ## Autores
 

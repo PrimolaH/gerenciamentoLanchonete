@@ -16,18 +16,14 @@ services:
       - "../docker/mysqldb:/docker/mysql"
   api:
     container_name: api
-    image: burgerfast
-    build:
-      context: ./
-      dockerfile: DockerFile
+    image: burgerfast:latest
+    environment:
+      - DB_URL=mysqldb
     depends_on:
       - mysqldb
     ports:
       - 8080:8080
     restart: always
-#    volumes:
-#      - /target:/opt/app
 
 volumes:
   mysqldb:
-#  api:

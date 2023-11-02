@@ -1,6 +1,5 @@
 FROM maven:3.6.3-openjdk-17
 WORKDIR /opt/app/
 COPY . /opt/app/
-# Compile and package the application to an executable JAR
 RUN mvn package
 ENTRYPOINT ["java","-jar","/opt/app/target/burgerfast.jar"]
