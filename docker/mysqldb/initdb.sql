@@ -7,16 +7,6 @@ create table cliente
     nr_cpf     varchar(255) null
 );
 
-create table pagamento
-(
-    vl_total     int    null,
-    id_cliente   bigint null,
-    id_pagamento bigint auto_increment
-        primary key,
-    constraint FK4m0hn0cs8y78h61cnj0ay0w2
-        foreign key (id_cliente) references cliente (id_cliente)
-);
-
 create table pedido
 (
     ds_status  tinyint        null,
@@ -27,6 +17,19 @@ create table pedido
     constraint FK9y4jnyp1hxqa386cnly0ay9uw
         foreign key (id_cliente) references cliente (id_cliente),
     check (`ds_status` between 0 and 3)
+);
+
+create table pagamento
+(
+    vl_total     int    null,
+    id_cliente   bigint null,
+    id_pagamento bigint auto_increment
+        primary key,
+    id_pedido    bigint null,
+    constraint FK4m0hn0cs8y78h61cnj0ay0w2
+        foreign key (id_cliente) references cliente (id_cliente),
+    constraint pagamento_pedido__fk
+        foreign key (id_pedido) references pedido (id_pedido)
 );
 
 create table produto
