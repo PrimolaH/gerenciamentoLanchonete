@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "84d4fd85-20e7-4aaa-85d4-6cb81e3abbd8",
+		"name": "burguerFast",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30873529",
+		"_collection_link": "https://bold-satellite-791720.postman.co/workspace/My-Workspace~1026e598-afbd-4968-86de-846551017d88/collection/30873529-84d4fd85-20e7-4aaa-85d4-6cb81e3abbd8?action=share&source=collection_link&creator=30873529"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "cadastrar_cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"40037881957\",\r\n    \"name\": \"Jose Carlos da Silva\",\r\n    \"email\":\"jose@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "buscar_por_cpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cliente/:cpf",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								":cpf"
+							],
+							"variable": [
+								{
+									"key": "cpf",
+									"value": "40037881957"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "cadastrar_produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Guarana\",\r\n    \"categoria\":\"BEBIDA\",\r\n    \"preco\":\"10.00\",\r\n    \"descricao\":\"Refrigerante de Guarana\",\r\n    \"imagem\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/produto"
+					},
+					"response": []
+				},
+				{
+					"name": "editar_produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\",\r\n    \"nome\":\"x-salada\",\r\n    \"categoria\":\"LANCHE\",\r\n    \"preco\":\"25.00\",\r\n    \"descricao\":\"pão, hamburguer (200g), alface, tomate, e queijo prato\",\r\n    \"imagem\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/produto"
+					},
+					"response": []
+				},
+				{
+					"name": "remover_produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/produto/:idProduto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								":idProduto"
+							],
+							"variable": [
+								{
+									"key": "idProduto",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consulta_lista_produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/produto/:categoria",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"produto",
+								":categoria"
+							],
+							"variable": [
+								{
+									"key": "categoria",
+									"value": "BEBIDA"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "criar_pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"RECEBIDO\",\n  \"produtos\": [\n    {\n      \"id\": 1\n    }\n  ],\n  \"cliente\": {\n    \"id\": 1\n  }\n}"
+						},
+						"url": "http://localhost:8080/pedido"
+					},
+					"response": []
+				},
+				{
+					"name": "consultar_lista_pedidos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "localhost:8080/pedido"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "efetuar_pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cliente\": {\r\n    \"id\": 1\r\n  },\r\n  \"pedido\": {\r\n    \"id\": 1\r\n  },\r\n  \"total\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/pagamento"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
